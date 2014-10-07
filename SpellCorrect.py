@@ -153,7 +153,7 @@ end = time.time()
 
 print ""
 for word in finalResults:
-	print word[0:]
+	print word[0]
 
 print("Total Time: " + str(end - start) + " seconds\n")
 
