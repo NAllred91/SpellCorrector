@@ -106,11 +106,10 @@ def wordRating(word,line):
 		- (len(word) - len(vowelRemoval(word))))
 
 	intersect = [val for val in list(word) if val in list(line)]
-	if(len(intersect) == len(list(line))):
-		bonusPoints += (len(intersect) - (len(list(word)) - len(intersect))) / 2.5
 
-	elif(len(intersect) == len(list(word))):
-		bonusPoints += (len(intersect) - (len(list(line)) - len(intersect))) / 2.5
+	bonusPoints += (len(intersect) - (len(list(word)) - len(intersect))) / 2.5
+
+	bonusPoints += (len(intersect) - (len(list(line)) - len(intersect))) / 2.5
 
 	if(list(line)[0] == list(word)[0]):
 		bonusPoints += 1
@@ -154,7 +153,7 @@ end = time.time()
 
 print ""
 for word in finalResults:
-	print word[0]
+	print word[0:]
 
 print("Total Time: " + str(end - start) + " seconds\n")
 
