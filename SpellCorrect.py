@@ -22,6 +22,8 @@ def levenshteinDistance(word1,word2):
             else:
                 new.append(1 + min((current[index1], current[index1 + 1], new[-1])))
         current = new
+
+        
     return current[-1]	
 
 # Return a word without vowels
@@ -69,8 +71,9 @@ def wordRating(word,line):
 
 	bonusPoints = 0
 
-	if(abs(len(word) - len(line)) > 5):
+	if(abs(len(word) - len(line)) > len(word) / 2 or abs(len(word) - len(line)) > len(line) / 2):
 		return 1000
+
 
 	sansVowelRating = levenshteinDistance(vowelRemoval(word), vowelRemoval(line))
 
@@ -117,7 +120,6 @@ def wordRating(word,line):
 	if(word == line):
 		bonusPoints += len(word)
 
-
 	return withVowelRating + sansVowelRating + simplifiedRating + sansDuplicateRating - bonusPoints
 	
 		
@@ -134,7 +136,7 @@ results[worstWord] = worstRating
 for line in dictionary:
 	lineWord = line.strip()
 	rating = wordRating(word, lineWord)
-	
+
 	if(len(results) < 10):
 		results[lineWord] = rating
 
