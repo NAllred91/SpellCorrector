@@ -2,6 +2,10 @@ import sys
 from operator import itemgetter
 import time
 
+if(len(sys.argv) < 3):
+	print "You're missing something..."
+	sys.exit()
+
 dictionary = open(sys.argv[1], 'r')
 word = sys.argv[2]
 vowel = ["a", "e", "i","o", "u"]
