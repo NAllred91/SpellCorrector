@@ -78,7 +78,6 @@ def wordRating(word,line):
 	if(abs(len(word) - len(line)) > len(word) / 2 or abs(len(word) - len(line)) > len(line) / 2):
 		return 1000
 
-
 	sansVowelRating = levenshteinDistance(vowelRemoval(word), vowelRemoval(line))
 
 	if(sansVowelRating < len(word) / 2 or sansVowelRating < 4):
@@ -161,7 +160,7 @@ print ""
 for word in finalResults:
 	print word[0]
 
-print("Total Time: " + str(end - start) + " seconds\n")
+print("\nTotal Time: " + str(end - start) + " seconds\n")
 
 
 
